@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background: #dbd9d9;
+    background: lightblue;
     margin: 0;
 }
 .inner {
@@ -18,7 +18,7 @@ body {
     justify-content: space-between;
 }
 header {
-    background: #fff;
+    background: yellow;
     padding: 1em 0;
 }
 
