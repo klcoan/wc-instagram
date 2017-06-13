@@ -7,9 +7,11 @@ html {
 }
 
 body {
+    font-family: 'Poppins', sans-serif;
     background: lightblue;
     margin: 0;
 }
+
 .inner {
     max-width: 960px;
     margin: 0 auto;
@@ -17,9 +19,61 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+/* this is to have a fall back in case the browser does not support grid */
+.images .inner {
+    flex-wrap: wrap;
+}
+
+/* checks to see if the browser supports grid. Allows the new features of CSS if supported*/
+@supports(display:grid) or (display: -ms-grid){
+    .images .inner {
+        display: -ms-grid;  /* for Edge browsers that don't support grid */
+        display: grid;
+        -ms-grid-template-columns: 1fr 1fr 1fr 1fr;  /*for Edge browsers that don't support grid */
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 3em;
+    }
+}
+
+.image {
+    position: relative;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.image__cover {
+    background: rgba(255, 255, 255, 1); 
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    padding-top: calc(50% - .5em);
+    transition: top .5s, background 1s;
+}
+
+/* any .image__cover that's inside a hovered .image should move back to the top*/
+.image:hover .image__cover {
+    top: 0;
+    background: rgba(0, 0, 0, .5)
+}
+
+/* sticky header */
 header {
     background: yellow;
     padding: 1em 0;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: padding .5s; /* transitions the padding around the header when scrolling */
+}
+
+.header--small {
+    padding: 0 0;
 }
 
 .header__logo {
@@ -29,12 +83,32 @@ header {
 
 /* Profile area Styles */
 
+.profile {
+    margin-top: 100px;  /* adding space above the profile content */
+}
+
 .profile__image {
-    /*border: 4px solid red;*/
+
     border-radius: 50%;
     overflow: hidden;
     width: 200px;
     height: 200px;
+    flex: 0 0 200px;
+}
+.profile__info {
+    margin-left: 2em;
+    flex: 1 1 auto;
+}
+
+.profile__meta {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+.profile__meta li {
+    margin-right: 2em;
 }
 
 .button {
@@ -49,3 +123,46 @@ header {
     border-color: blue;
     border-radius: 8px;
 }
+img {
+    max-width: 100%;
+}
+
+.weblink {
+    color: blue;
+    text-decoration: none;
+}
+.weblink:hover {
+    text-decoration: underline;
+}
+.weblink:before {
+    content:"😀";
+}
+@media(max-width:1000px) { /* max width of the inner class */
+     .inner {
+         padding-left: 1em;
+         padding-right: 1em;
+     }
+}
+@media(max-width: 630px) {
+        .profile .inner {
+            flex-direction: column;
+        }
+        .images .inner {
+            -ms-grid-template-columns: 1fr 1fr;  /*for Edge browsers that don't support grid */
+            grid-template-columns: 1fr 1fr;
+          } 
+        .profile__image {
+            width: 100px;
+            height: 100px;
+            flex: 0 0 100px;
+        } 
+        header .inner {
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .header__search {
+            order: 1;
+        }
+        
+    }
+
