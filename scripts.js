@@ -31,8 +31,8 @@ function addErrorEvents() {
     images.forEach(function(image, index) {
         image.addEventListener('error', function(){
             //const next = Math.round(Math.random()*1000)
-            //this.src = `http://unsplash.it/300/?image=${next}`
-            this.src = `http://unsplash.it/300/?image=580`
+            //this.src = `https://unsplash.it/300/?image=${next}`
+            this.src = `https://unsplash.it/300/?image=580`
         })
     })
 }
@@ -44,7 +44,7 @@ const showFullImage = id => {
     const fullImage = fullContainer.querySelector('img')   //the image in the div
     //Set the src of the fullImage to be a bigger version 
     // of the same image
-    fullImage.src = `http://unsplash.it/600/?image=${id}`
+    fullImage.src = `https://unsplash.it/600/?image=${id}`
     //Remove the hidden class from the fullContainer to show it
     fullContainer.classList.remove('hidden')
 }
@@ -59,13 +59,13 @@ const showFullImage = id => {
 
 // var Image = {}
 
-// Load Data from http://unsplash.it/list
+// Load Data from https://unsplash.it/list
 //then convert to JSON
 // then grab 20 random images
 // then add images to HTML and call addClickEvents()
 
 // Use fetch() to load remote data
-    fetch('http://unsplash.it/list')
+    fetch('https://unsplash.it/list')
         .then(result => {
              return result.json()  //convert the text into JSON data   
              //could be written as .then(result => result.json())         
@@ -100,7 +100,7 @@ function populateImages(imageArray) {
     //maybe just console.log somthing to make sure it working
     imageArray.forEach(function(image, index){ 
         const html= `<a href="" class="image">
-                <img src="http://unsplash.it/300/?image=${image.id}" alt="${image.author}">
+                <img src="https://unsplash.it/300/?image=${image.id}" alt="${image.author}">
                 <span class="image__cover">View Image</span>
             </a>` //use the backtick so that text can span multiple lines apostophes require all command to be on one line
         imageContainer.innerHTML += html    //sets the html paragraph into the html format x times using the +=
@@ -109,7 +109,7 @@ function populateImages(imageArray) {
 }
 
 /*            <a href="" class="image">
-                <img src="http://unsplash.it/300/?image=222" alt="">
+                <img src="https://unsplash.it/300/?image=222" alt="">
                 <span class="image__cover">View Image</span>
             </a>
 */
