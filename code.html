@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button id="myButton">Click Me!</button>
+
+    <script>
+        //var myButton =document.getElementById('myButton')
+        var myButton =document.querySelector('#myButton')
+        var myInput = document.querySelector('input')
+        myButton.addEventListener('click', function(){
+            //var message = 'You typed: ' + myInput.value
+            var message = `You typed: ${myInput.value}`
+            console.log(message)
+            })
+
+            //new variable declarations
+            const name = 'kris'
+            let city = 'Norfolk'
+            console.log(name)
+
+            //*** fun with functions***/
+            
+            //Make a function named getName that has no parameters
+            function getname(){
+                
+            }
+
+            //Make the new function, but using "assignment" syntax same as previous //
+
+            var getname2 = function(){
+
+            }
+
+            //Make a function using "assignment" syntax
+            // the function name is addNumbers and it has two parameters
+            // num1 and num2
+            // make the function return the sum of the numbers
+
+            var addNumbers = function(num1, num2){
+                let total = num1 + num2
+                return total
+                // return num1 + num2 replaces the two previous lines
+            }
+            let sum = addNumbers(1,2)
+            console.log(sum)
+
+            //could also console.log(addNumbers(1,2)) instead of previous two lines
+
+            //Just like above, make a multNumbers function
+            //It's passed two parameters: num1 and num2
+            //it returns the product of those numers
+
+            //         var multNumbers = function(num1, num2) {
+            //              return (num1*num2)
+            //         }
+            //              let product = multNumbers(2, 3)
+            //              console.log(product)
+
+            //Arrow function replaces the function sytax above
+            var multNumbers = (num1, num2) => {
+                return num1*num2
+            }
+
+            let product = multNumbers(2, 3)
+            console.log(product)
+
+            //Using Arow Functions
+            //make a function named double which is passed 
+            // one parameter called num and returns num * 2
+
+            var double = (num) => {
+                return num * 2
+            }
+            let result = double(4)
+            console.log(result)
+
+            // Make a triple function, just like double
+            // Here we'll use the shorter sytax
+            // If one variable: no parenthesis are needed
+            // If the only statement is a return statement, you
+            // don't need curly braces or the "return" word
+
+    //        var triple = (num) => {
+    //          return num * 3
+    //        }
+    //        console.log(triple(10))
+ 
+            var triple = num => num * 3
+
+            console.log(triple(10))
+
+            //if zero parameters must use parenthesis without any input
+            // var something = () => {
+            //    
+            //}
+
+
+
+    </script>
+</body>
+</html>

@@ -37,7 +37,7 @@ body {
 
 .image {
     position: relative;
-    line-height: 0;
+    display: inherit;  /* fix extra line space */
     overflow: hidden;
 }
 
@@ -137,6 +137,25 @@ img {
 .weblink:before {
     content:"😀";
 }
+
+.full {
+    /* Position it, change the width/height, background color */
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
 @media(max-width:1000px) { /* max width of the inner class */
      .inner {
          padding-left: 1em;
